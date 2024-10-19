@@ -10,9 +10,9 @@ const Transactions = () => {
 
   return (
     <Box p={4} borderWidth={1} borderRadius="md" boxShadow="md">
-      <Text fontSize="lg" fontWeight="bold">Recent Transactions</Text>
+      <Text fontSize="lg" fontWeight="bold" color={'white'}>Recent Transactions</Text>
       {transactions.map(tx => (
-        <Text key={tx.id} mt={2}>Amount: {tx.amount} - Date: {tx.date}</Text>
+        <Text key={tx.id} mt={2} color={'#A2A3A4'}>Amount: {tx.amount} - Date: {tx.date}</Text>
       ))}
     </Box>
   );

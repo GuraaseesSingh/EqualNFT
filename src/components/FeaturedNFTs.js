@@ -10,9 +10,9 @@ const FeaturedNFTs = () => {
 
   return (
     <Box p={4} borderWidth={1} borderRadius="md" boxShadow="md">
-      <Text fontSize="lg" fontWeight="bold">Featured NFTs</Text>
+      <Text fontSize="lg" fontWeight="bold" color={'white'}>Featured NFTs</Text>
       {nfts.map(nft => (
-        <Text key={nft.id} mt={2}>{nft.title} - Price: {nft.price}</Text>
+        <Text key={nft.id} mt={2} color={'#A2A3A4'}>{nft.title} - Price: {nft.price}</Text>
       ))}
     </Box>
   );
