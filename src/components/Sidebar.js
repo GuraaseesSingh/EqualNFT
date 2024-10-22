@@ -65,6 +65,9 @@ const Sidebar = () => {
           <Button onClick={handleButtonClick} variant="ghost" leftIcon={<FaHeart />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
             Favourites
           </Button>
+          <Button variant="ghost" leftIcon={<FaInbox />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
+            Staking
+          </Button>
         </VStack>
 
         {/* Wallet Section */}

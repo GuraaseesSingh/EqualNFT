@@ -7,7 +7,6 @@ import Banner from './components/Banner';
 import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
 
-
 function App() {
   return (
     <ChakraProvider>
@@ -26,6 +25,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contributions" element={<Contributions />} /> {/* New Contributions Page */}
           <Route path="/banner" element={<Banner />} />
+          <Route path="/staking" element={<Staking />} />
         </Routes>
       </Router>
     </ChakraProvider>
