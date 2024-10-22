@@ -1,11 +1,17 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import Dashboard from './components/Dashboard'; // Ensure you have this component created
-import './index.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
     <ChakraProvider>
-      <Dashboard />
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </ChakraProvider>
   );
 }
