@@ -83,7 +83,7 @@ const RegisterForm = () => {
                 placeholder="Enter your password"
               />
             </FormControl>
-            <Button
+            <Button 
               type="submit"
               colorScheme="blue"
               width="full"

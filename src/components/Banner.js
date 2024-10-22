@@ -1,6 +1,26 @@
 import React from 'react';
 import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
+import axios from 'axios';
+
+const fetchNFTData = async (contractAddress, tokenId) => {
+  const apiKey = 'AChVYoHTHYF8r9zsBibo-8HBwsjFv_Xn';
+  const url = `https://eth-mainnet.alchemyapi.io/nft/v2/${apiKey}/getNFTMetadata`;
+  const response = await axios.get(url, {
+    params: {
+      contractAddress: contractAddress,
+      tokenId: tokenId,
+    },
+  });
+  return response.data;
+};
+
+fetchNFTData('0x458A9887667B731A599179FC1f428E474B40BB66', '1').then(data => {
+  console.log(data);
+  // Update your website UI with the NFT data
+});
+
+
 
 const autoRun = keyframes`
   from {
@@ -45,7 +65,7 @@ const Banner = () => {
             inset="0"
             transform={`rotateY(${(i * (360 / 10))}deg) translateZ(550px)`}
           >
-            <Image src={`images/dragon_${i + 1}.jpg`} alt={`Dragon ${i + 1}`} width="100%" height="100%" objectFit="cover" />
+            <Image src={`images/dragon_${i + 1}.png`} alt={`Dragon ${i + 1}`} width="100%" height="100%" objectFit="cover" />
           </Box>
         ))}
       </Box>
