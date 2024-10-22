@@ -3,14 +3,25 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import Banner from './components/Banner';
+import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
+
+
 function App() {
   return (
     <ChakraProvider>
       <Router>
         <Routes>
+          {/* Route for HomePage */}
+          <Route path="/" element={<HomePage />} />
+
+          {/**route for register form */}
           <Route path="/" element={<RegisterForm />} />
+
+          {/* Route for LoginForm */}
           <Route path="/login" element={<LoginForm />} />
+
+          {/* Route for Dashboard */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/banner" element={<Banner />} />
         </Routes>
@@ -20,3 +31,4 @@ function App() {
 }
 
 export default App;
+
