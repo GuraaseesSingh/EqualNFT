@@ -11,10 +11,12 @@ import {
 } from '@chakra-ui/react';
 import { FaHome, FaWallet, FaBitcoin, FaEthereum, FaCog, FaInfoCircle, FaInbox, FaHeart } from 'react-icons/fa';
 import { BsCoin } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Sidebar = () => {
   const { isOpen: walletOpen, onToggle: toggleWallet } = useDisclosure();
   const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     if (darkMode) {
@@ -23,6 +25,10 @@ const Sidebar = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
+
+  const handleButtonClick = () => {
+    navigate('/banner'); // Navigate to the /banner route
+  };
 
   return (
     <Box
@@ -56,7 +62,7 @@ const Sidebar = () => {
           <Button variant="ghost" leftIcon={<FaInbox />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
             Inbox
           </Button>
-          <Button variant="ghost" leftIcon={<FaHeart />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
+          <Button onClick={handleButtonClick} variant="ghost" leftIcon={<FaHeart />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
             Favourites
           </Button>
         </VStack>
