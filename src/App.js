@@ -17,7 +17,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
 
           {/**route for register form */}
-          <Route path="/" element={<RegisterForm />} />
           <Route path="/register" element={<RegisterForm />} />
 
           {/* Route for LoginForm */}
