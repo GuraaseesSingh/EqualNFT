@@ -6,6 +6,7 @@ import Contributions from './components/Contributions';
 import Banner from './components/Banner';
 import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
+import Staking from './components/Staking';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
           {/**route for register form */}
           <Route path="/" element={<RegisterForm />} />
+          <Route path="/register" element={<RegisterForm />} />
 
           {/* Route for LoginForm */}
           <Route path="/login" element={<LoginForm />} />
