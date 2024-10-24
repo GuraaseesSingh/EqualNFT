@@ -6,6 +6,8 @@ import Contributions from './components/Contributions';
 import Banner from './components/Banner';
 import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
+import Staking from './components/Staking';
+import TaskCard from './components/TasksDeagentAI';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           <Route path="/contributions" element={<Contributions />} /> {/* New Contributions Page */}
           <Route path="/banner" element={<Banner />} />
           <Route path="/staking" element={<Staking />} />
+          <Route path="/deagentAI" element={<TaskCard />} />
         </Routes>
       </Router>
     </ChakraProvider>

@@ -1,55 +1,189 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Text, Progress, VStack, Heading } from '@chakra-ui/react';
+import React, { useState } from "react";
+import {
+  Box,
+  ButtonGroup,
+  Flex,
+  Text,
+  Button,
+  Input,
+  Switch,
+  useColorMode,
+  VStack,
+} from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const Contributions = () => {
-  const [timeSpent, setTimeSpent] = useState(0);
-  const [startTime, setStartTime] = useState(null);
+const Dashboard = () => {
+  const navigate = useNavigate(); // useNavigate should be called inside the component
 
-  useEffect(() => {
-    const storedStartTime = Date.now();
-    setStartTime(storedStartTime);
+  const handleButtonClick = () => {
+    navigate('/deagentAI'); // Navigate to the /deagentAI route
+  };
 
-    const interval = setInterval(() => {
-      const currentTime = Date.now();
-      const timeElapsed = (currentTime - storedStartTime) / 1000;
-      setTimeSpent(timeElapsed);
-    }, 1000);
+  // Dummy data for contributed projects
+  const projects = [
+    { projectName: "DeagentAI", onClick: handleButtonClick }, // Fix onClick syntax
+    { projectName: "Humanity Protocol" },
+    { projectName: "Nexus" },
+  ];
 
-    return () => clearInterval(interval);
-  }, []);
+  // Dummy data for top contributors
+  const contributor = [
+    {
+      personname: "Asees Singh",
+      totalContribution: "350 USDT",
+      campaignsParticipated: 3,
+      timeConnected: "10h 30m",
+    },
+  ];
+
+  // State for showing time connected
+  const [showTime, setShowTime] = useState(false);
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box bg="#1a202c" minH="100vh" p={6} color="white">
-      <Heading as="h1" size="xl" mb={6} textAlign="center">
-        Your Contributions
-      </Heading>
+    <Box
+      color={"white"}
+      p={10}
+      borderWidth={1}
+      borderRadius="md"
+      boxShadow="lg"
+      bgGradient="linear(to-r, #1e3a8a, #1e40af)" // Dark theme colors
+      margin="0 auto"
+      maxW="1000px"
+      textAlign="center"
+    >
+      {/* Search Bar */}
+      <Input
+        placeholder="Search campaigns..."
+        size="lg"
+        mb={6}
+        bg="white"
+        color="black"
+        _placeholder={{ color: "gray.500" }}
+      />
 
-      <Box bg="#2d3748" p={6} borderRadius="md" shadow="md">
-        <Heading as="h2" size="lg" mb={4}>Campaign: Save the Oceans</Heading>
-        <Text mb={4}>Track your contributions to the campaign below:</Text>
+      {/* Explore Button */}
+      <Button
+        backgroundColor="teal.500"
+        color="white"
+        borderRadius={10}
+        mb={6}
+        onClick={() => alert("Exploring more campaigns...")}
+      >
+        Explore More Campaigns
+      </Button>
 
-        <VStack spacing={4} align="stretch">
-          <Box>
-            <Text mb={2}>Task 1: Clean Beach A (Completed)</Text>
-            <Progress value={100} size="lg" colorScheme="teal" />
-          </Box>
-          <Box>
-            <Text mb={2}>Task 2: Clean Beach B (In Progress)</Text>
-            <Progress value={50} size="lg" colorScheme="orange" />
-          </Box>
-          <Box>
-            <Text mb={2}>Task 3: Clean Beach C (New)</Text>
-            <Progress value={10} size="lg" colorScheme="red" />
-          </Box>
+      {/* Projects User is Contributing To */}
+      <Box mb={10}>
+        <Text fontSize="3xl" fontWeight="bold" mb={4}>
+          Your Contributed Projects
+        </Text>
+        <VStack spacing={4}>
+          {projects.map((project, index) => (
+            <Box
+              key={index}
+              p={5}
+              borderWidth={1}
+              borderRadius="lg"
+              width="100%"
+              textAlign="left"
+              bg="white"
+              color="black"
+              cursor={project.onClick ? 'pointer' : 'default'}
+              onClick={project.onClick}
+            >
+              <Text fontSize="xl" fontWeight="bold">
+                {project.projectName}
+              </Text>
+            </Box>
+          ))}
         </VStack>
       </Box>
 
-      <Box mt={8} bg="#2d3748" p={6} borderRadius="md" shadow="md">
-        <Heading as="h3" size="md" mb={4}>Your Contribution</Heading>
-        <Text>Total Time Contributed: {timeSpent.toFixed(0)} seconds</Text>
+      {/* Top Contributors Section */}
+      <Box
+        p={10}
+        borderWidth={1}
+        borderRadius="md"
+        boxShadow="md"
+        width="fit-content"
+        margin="0 auto"
+        bgGradient="linear(to-l, #7928CA, #FF0080)"
+      >
+        <Text
+          style={{ marginBottom: "20px", marginTop: "0px" }}
+          fontSize="4xl"
+          fontWeight="bold"
+          color={"white"}
+          mb={2}
+        >
+          Top Contributors
+        </Text>
+
+        {/* Toggle Button to Show Time Connected */}
+        <Flex justifyContent="center" alignItems="center" mb={6}>
+          <Text fontSize="lg" mr={2}>
+            Show Time Connected
+          </Text>
+          <Switch
+            size="lg"
+            isChecked={showTime}
+            onChange={() => setShowTime(!showTime)}
+            colorScheme="teal"
+          />
+        </Flex>
+
+        {/* Contributors Details */}
+        <Flex alignItems="center" justifyContent="center">
+          <Box
+            as="svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            width={100}
+            height={100}
+            fill={"white"}
+            mr={4}
+          >
+            <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z" />
+          </Box>
+          <Flex direction="column" textAlign="left">
+            {contributor.map((tc, index) => (
+              <Box key={index} mb={2}>
+                <Text fontSize="xl" fontWeight="bold" color={"white"}>
+                  Name: {tc.personname}
+                </Text>
+                <Text color={"white"}>Total Contribution: {tc.totalContribution}</Text>
+                <Text color={"white"}>Campaigns Participated: {tc.campaignsParticipated}</Text>
+                {showTime && (
+                  <Text color={"white"}>Time Connected: {tc.timeConnected}</Text>
+                )}
+              </Box>
+            ))}
+
+            {/* Buttons for Viewing Rewards and Collection */}
+            <ButtonGroup variant="outline" spacing="6" mt={4}>
+              <Button backgroundColor="white" color="black" borderRadius={10}>
+                View Rewards
+              </Button>
+              <Button colorScheme="white" borderRadius={10}>
+                View Collection
+              </Button>
+            </ButtonGroup>
+          </Flex>
+        </Flex>
       </Box>
+
+      {/* Dark/Light Mode Toggle */}
+      <Button
+        mt={6}
+        onClick={toggleColorMode}
+        colorScheme="teal"
+        borderRadius={10}
+      >
+        Toggle {colorMode === "light" ? "Dark" : "Light"} Mode
+      </Button>
     </Box>
   );
 };
 
-export default Contributions;
+export default Dashboard;
