@@ -11,6 +11,33 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+const Dashboard = () => {
+  const navigate = useNavigate(); // useNavigate should be called inside the component
+
+  const handleButtonClick = () => {
+    navigate('/deagentAI'); // Navigate to the /deagentAI route
+  };
+
+  // Dummy data for contributed projects
+  const projects = [
+    { projectName: "DeagentAI", onClick: handleButtonClick }, // Fix onClick syntax
+    { projectName: "Humanity Protocol" },
+    { projectName: "Nexus" },
+  ];
+
+  // Dummy data for top contributors
+  const contributor = [
+    {
+      personname: "Asees Singh",
+      totalContribution: "350 USDT",
+      campaignsParticipated: 3,
+      timeConnected: "10h 30m",
+    },
+  ];
+
+
 const Dashboard = () => {
   // Dummy data for contributed projects
   const projects = [
@@ -28,6 +55,7 @@ const Dashboard = () => {
       timeConnected: "10h 30m",
     },
   ];
+
 
   // State for showing time connected
   const [showTime, setShowTime] = useState(false);
@@ -82,12 +110,18 @@ const Dashboard = () => {
               textAlign="left"
               bg="white"
               color="black"
+
+              cursor={project.onClick ? 'pointer' : 'default'}
+              onClick={project.onClick}
+
             >
               <Text fontSize="xl" fontWeight="bold">
                 {project.projectName}
               </Text>
+
+
               <Text>Contribution: {project.contribution}</Text>
-            </Box>
+           </Box>
           ))}
         </VStack>
       </Box>

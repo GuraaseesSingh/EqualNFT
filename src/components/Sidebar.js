@@ -29,6 +29,9 @@ const Sidebar = () => {
   const handleButtonClick = () => {
     navigate('/banner'); // Navigate to the /banner route
   };
+  const handleButtonClick1 = () => {
+    navigate('/contributions'); // Navigate to the /banner route
+  };
 
   return (
     <Box
@@ -67,6 +70,9 @@ const Sidebar = () => {
           </Button>
           <Button variant="ghost" leftIcon={<FaInbox />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
             Staking
+          </Button>
+          <Button onClick={handleButtonClick1} variant="ghost" leftIcon={<FaInbox />} colorScheme={darkMode ? 'gray' : 'gray'} color={darkMode ? 'white' : 'black'}>
+            Contributions
           </Button>
         </VStack>
 

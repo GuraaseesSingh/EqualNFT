@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
 import Staking from './components/Staking';
 
+
 function App() {
   return (
     <ChakraProvider>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contributions" element={<Contributions />} /> {/* New Contributions Page */}
           <Route path="/banner" element={<Banner />} />
           <Route path="/staking" element={<Staking />} />
+          <Route path="/deagentAI" element={<TaskCard />} />
         </Routes>
       </Router>
     </ChakraProvider>
