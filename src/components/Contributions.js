@@ -10,6 +10,7 @@ import {
   useColorMode,
   VStack,
 } from "@chakra-ui/react";
+
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Dashboard = () => {
@@ -35,6 +36,26 @@ const Dashboard = () => {
       timeConnected: "10h 30m",
     },
   ];
+
+
+const Dashboard = () => {
+  // Dummy data for contributed projects
+  const projects = [
+    { projectName: "Project A", contribution: "100 USDT" },
+    { projectName: "Project B", contribution: "50 USDT" },
+    { projectName: "Project C", contribution: "200 USDT" },
+  ];
+
+  // Dummy data for top contributors
+  const contributor = [
+    {
+      personname: "Asees Singh",
+      totalContribution: "300 USDT",
+      campaignsParticipated: 3,
+      timeConnected: "10h 30m",
+    },
+  ];
+
 
   // State for showing time connected
   const [showTime, setShowTime] = useState(false);
@@ -89,13 +110,18 @@ const Dashboard = () => {
               textAlign="left"
               bg="white"
               color="black"
+
               cursor={project.onClick ? 'pointer' : 'default'}
               onClick={project.onClick}
+
             >
               <Text fontSize="xl" fontWeight="bold">
                 {project.projectName}
               </Text>
-            </Box>
+
+
+              <Text>Contribution: {project.contribution}</Text>
+           </Box>
           ))}
         </VStack>
       </Box>
