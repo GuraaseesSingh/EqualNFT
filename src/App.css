@@ -36,3 +36,83 @@
     transform: rotate(360deg);
   }
 }
+/* Staking.css */
+
+
+
+.staking-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Centered text */
+}
+
+.account-info {
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  margin-bottom: 20px; /* Space below */
+}
+
+.metamask-icon {
+  font-size: 24px; /* Size of the MetaMask icon */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.balances {
+  margin-bottom: 20px; /* Space below balances */
+}
+
+.balances h2 {
+  margin: 10px 0; /* Margin for balance headers */
+  color: #333; /* Text color */
+}
+
+.stake-input {
+  margin: 20px 0; /* Margin for input section */
+}
+
+.stake-input input {
+  padding: 10px; /* Padding inside input */
+  width: 70%; /* Width of the input */
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.stake-input button {
+  padding: 10px 15px; /* Padding inside button */
+  margin-left: 10px; /* Space between input and button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.stake-input button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.action-buttons {
+  margin-top: 20px; /* Margin above action buttons */
+}
+
+.action-buttons button {
+  padding: 10px 15px; /* Padding inside buttons */
+  margin: 0 10px; /* Space between buttons */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.action-buttons button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+

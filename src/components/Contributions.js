@@ -13,29 +13,29 @@ import {
 
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const Dashboard = () => {
-  const navigate = useNavigate(); // useNavigate should be called inside the component
+// const Dashboard = () => {
+//   const navigate = useNavigate(); // useNavigate should be called inside the component
 
-  const handleButtonClick = () => {
-    navigate('/deagentAI'); // Navigate to the /deagentAI route
-  };
+//   const handleButtonClick = () => {
+//     navigate('/deagentAI'); // Navigate to the /deagentAI route
+//   };
 
-  // Dummy data for contributed projects
-  const projects = [
-    { projectName: "DeagentAI", onClick: handleButtonClick }, // Fix onClick syntax
-    { projectName: "Humanity Protocol" },
-    { projectName: "Nexus" },
-  ];
+//   // Dummy data for contributed projects
+//   const projects = [
+//     { projectName: "DeagentAI", onClick: handleButtonClick }, // Fix onClick syntax
+//     { projectName: "Humanity Protocol" },
+//     { projectName: "Nexus" },
+//   ];
 
-  // Dummy data for top contributors
-  const contributor = [
-    {
-      personname: "Asees Singh",
-      totalContribution: "350 USDT",
-      campaignsParticipated: 3,
-      timeConnected: "10h 30m",
-    },
-  ];
+//   // Dummy data for top contributors
+//   const contributor = [
+//     {
+//       personname: "Asees Singh",
+//       totalContribution: "350 USDT",
+//       campaignsParticipated: 3,
+//       timeConnected: "10h 30m",
+//     },
+//   ];
 
 
 const Dashboard = () => {
@@ -211,5 +211,4 @@ const Dashboard = () => {
     </Box>
   );
 };
-
 export default Dashboard;

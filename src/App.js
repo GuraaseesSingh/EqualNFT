@@ -7,6 +7,7 @@ import Banner from './components/Banner';
 import HomePage from './components/HomePage';
 import RegisterForm from './components/RegisterForm';
 import Staking from './components/Staking';
+import TaskCard from './components/TasksDeagentAI'; // Or the correct path to TaskCard file
 
 
 function App() {
